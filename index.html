@@ -168,7 +168,7 @@
         .toast.info { background: rgba(14, 165, 233, 0.9); border: 1px solid #0ea5e9; }
     </style>
 </head>
-<body class="h-screen flex flex-col overflow-hidden">
+<body class="h-[100dvh] flex flex-col overflow-hidden">
 
     <!-- Header Glassmorphism -->
     <header class="glass-panel border-b border-white/10 px-3 py-3 md:px-5 md:py-4 flex justify-between items-center z-20 shrink-0">
@@ -392,13 +392,6 @@
                     <div id="certifications-list" class="space-y-4"></div>
                 </div>
             </div>
-            
-            <!-- Mobile Sticky Preview Toggle Button (Fixed inside panel but position fixed relative to viewport for visual stickiness on small devices) -->
-            <div class="md:hidden fixed bottom-0 left-0 right-0 p-3 bg-[#0a0a0e]/95 backdrop-blur-md border-t border-slate-800 z-[90]">
-                <button onclick="toggleMobilePreview()" class="w-full btn-action text-white py-3 rounded-xl font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2 text-sm tracking-wide">
-                    <i class="fa-solid fa-eye"></i> Tampilkan Preview CV
-                </button>
-            </div>
         </div>
 
         <!-- Right Panel: Live Preview -->
@@ -427,6 +420,13 @@
             </div>
         </div>
     </main>
+
+    <!-- Mobile Sticky Preview Toggle Button (Moved outside main to fix z-index/backdrop issues) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 p-3 bg-[#0a0a0e]/95 backdrop-blur-xl border-t border-white/5 z-[9999] pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+        <button onclick="toggleMobilePreview()" class="w-full btn-action text-white py-3.5 rounded-xl font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2 text-sm tracking-wide border border-emerald-500/20">
+            <i class="fa-solid fa-eye text-emerald-400"></i> Tampilkan Preview CV
+        </button>
+    </div>
 
     <!-- Toast Notifications -->
     <div id="toast-container"></div>
