@@ -446,7 +446,8 @@
                 { id: Date.now(), company: 'PT Teknologi Nusantara', position: 'IT Support Specialist', startDate: 'Jan 2021', endDate: 'Sekarang', description: '• Melakukan instalasi, konfigurasi, dan maintenance perangkat keras/lunak kantor.\n• Troubleshooting masalah jaringan LAN/WLAN.\n• Memastikan sistem keamanan data berjalan optimal.' }
             ],
             education: [
-                { id: Date.now(), institution: 'Universitas Sebelas Maret', degree: 'S1 Teknik Informatika', startDate: '2016', endDate: '2020', gpa: '3.85', description: 'Aktif dalam organisasi kemahasiswaan dan asisten laboratorium.' }
+                { id: Date.now(), institution: 'Universitas Sebelas Maret', degree: 'S1 Teknik Informatika', startDate: '2016', endDate: '2020', gpa: 'IPK 3.85', description: 'Aktif dalam organisasi kemahasiswaan dan asisten laboratorium.' },
+                { id: Date.now()-1, institution: 'SMK Negeri 2 Surakarta', degree: 'Teknik Komputer dan Jaringan', startDate: '2013', endDate: '2016', gpa: 'Nilai Rata-rata 88.5', description: '• Lulusan terbaik program keahlian TKJ.\n• Prakerin di PT Telkom Akses selama 3 bulan.' }
             ],
             skills: [
                 { id: Date.now(), name: 'Troubleshooting Hardware', level: 90 }, { id: Date.now()-1, name: 'Cisco Networking', level: 85 }
@@ -727,8 +728,9 @@
                             <div class="grid grid-cols-3 gap-2">
                                 <div><label class="text-[9px] text-slate-400 font-bold uppercase">Mulai</label><input type="text" value="${item.startDate}" oninput="updateListItem('education', ${item.id}, 'startDate', this.value)" class="w-full input-dark rounded mt-0.5" placeholder="Tahun"></div>
                                 <div><label class="text-[9px] text-slate-400 font-bold uppercase">Selesai</label><input type="text" value="${item.endDate}" oninput="updateListItem('education', ${item.id}, 'endDate', this.value)" class="w-full input-dark rounded mt-0.5" placeholder="Tahun"></div>
-                                <div><label class="text-[9px] text-slate-400 font-bold uppercase">Nilai/IPK</label><input type="text" value="${item.gpa || ''}" oninput="updateListItem('education', ${item.id}, 'gpa', this.value)" class="w-full input-dark rounded mt-0.5" placeholder="Opsional"></div>
+                                <div><label class="text-[9px] text-slate-400 font-bold uppercase">Nilai / Keterangan</label><input type="text" value="${item.gpa || ''}" oninput="updateListItem('education', ${item.id}, 'gpa', this.value)" class="w-full input-dark rounded mt-0.5" placeholder="Cth: IPK 3.8 / Nilai 85"></div>
                             </div>
+                            <div><label class="text-[9px] text-slate-400 font-bold uppercase mt-2">Catatan Tambahan (Opsional)</label><textarea rows="2" oninput="updateListItem('education', ${item.id}, 'description', this.value)" class="w-full input-dark rounded mt-0.5 resize-none" placeholder="Cth: Lulusan Terbaik, Aktif di OSIS, Topik Skripsi...">${item.description || ''}</textarea></div>
                         </div>`;
                 } else if (listName === 'softSkills') {
                     innerHTML += `
@@ -842,7 +844,8 @@
                             <div class="relative pl-4 border-l-2 border-gray-200">
                                 <div class="absolute w-2.5 h-2.5 rounded-full -left-[6px] top-1.5 border border-white" style="background-color: var(--color-primary);"></div>
                                 <h4 class="font-bold text-gray-800 text-base leading-snug">${e.institution}</h4>
-                                <div class="flex justify-between text-[13px] text-gray-500 mb-1 font-medium mt-0.5"><span>${e.degree} ${e.gpa ? `<b class="text-gray-700">| IPK: ${e.gpa}</b>` : ''}</span><span class="text-gray-400">${e.startDate} - ${e.endDate}</span></div>
+                                <div class="flex justify-between text-[13px] text-gray-500 mb-1 font-medium mt-0.5"><span>${e.degree} ${e.gpa ? `<b class="text-gray-700">| ${e.gpa}</b>` : ''}</span><span class="text-gray-400">${e.startDate} - ${e.endDate}</span></div>
+                                ${e.description ? `<div class="text-gray-600 mt-1">${formatDesc(e.description)}</div>` : ''}
                             </div>`).join('')}
                         </div>
                     </div>` : ''}
@@ -911,12 +914,15 @@
                 <div class="mb-5 cv-section-break">
                     <h2 class="text-[15px] font-bold uppercase border-b border-gray-400 mb-2 pb-1" style="color: black !important;">Pendidikan</h2>
                     ${data.education.map(e => `
-                    <div class="mb-2 flex justify-between text-[14px]">
-                        <div>
-                            <span class="font-bold">${e.institution}</span><br>
-                            <span>${e.degree} ${e.gpa ? `- IPK: ${e.gpa}` : ''}</span>
+                    <div class="mb-3">
+                        <div class="flex justify-between text-[14px]">
+                            <div>
+                                <span class="font-bold">${e.institution}</span><br>
+                                <span>${e.degree} ${e.gpa ? `- ${e.gpa}` : ''}</span>
+                            </div>
+                            <span class="font-bold">${e.startDate} - ${e.endDate}</span>
                         </div>
-                        <span class="font-bold">${e.startDate} - ${e.endDate}</span>
+                        ${e.description ? `<div class="text-[14px] mt-1 ml-4">${formatDesc(e.description)}</div>` : ''}
                     </div>`).join('')}
                 </div>` : ''}
 
