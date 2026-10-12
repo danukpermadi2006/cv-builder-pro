@@ -437,44 +437,39 @@
         const dummyData = {
             settings: { theme: 'light', color: '#10B981', font: 'jakarta', template: 'modern' },
             personal: { 
-                name: 'Budi Santoso', title: 'IT Support & Network Engineer', email: 'budi.santoso@email.com', 
-                phone: '+62 811 2233 4455', location: 'Surakarta, Indonesia', 
-                summary: 'Profesional IT dengan pengalaman luas dalam manajemen jaringan, troubleshooting hardware/software, dan memberikan dukungan teknis terbaik. Memiliki kemampuan analisis yang kuat serta berorientasi pada penyelesaian masalah.',
+                name: 'Danuk Permadi', 
+                title: 'Tenaga Operasional & Administrasi', 
+                email: 'danukpermadi2006@gmail.com', 
+                phone: '+6285129769015', 
+                location: 'Pemalang, Jawa Tengah', 
+                summary: 'Lulusan SMK Teknik Jaringan Komputer & Telekomunikasi yang adaptif, teliti, dan memiliki ketahanan fisik yang prima. Memiliki pengalaman kerja 1 tahun di industri F&B (area pelayanan dan dapur) yang melatih saya untuk bekerja cepat di bawah tekanan, menjaga kebersihan area kerja, dan mematuhi SOP secara ketat. Didukung dengan pengalaman administratif di instansi pemerintah, saya terbiasa mengelola data dengan akurat. Saat ini sangat antusias untuk memberikan kontribusi positif dan membangun karir jangka panjang di lingkungan kerja yang dinamis. Berdomisili di Jawa Tengah dan bersedia penuh untuk segera ditempatkan di Jakarta atau wilayah lainnya.',
                 photo: ''
             },
             experience: [
-                { id: Date.now(), company: 'PT Teknologi Nusantara', position: 'IT Support Specialist', startDate: 'Jan 2021', endDate: 'Sekarang', description: '• Melakukan instalasi, konfigurasi, dan maintenance perangkat keras/lunak kantor.\n• Troubleshooting masalah jaringan LAN/WLAN.\n• Memastikan sistem keamanan data berjalan optimal.' }
+                { id: Date.now(), company: 'Boemi Sunda', position: 'Grill & Fry Crew', startDate: 'Maret 2026', endDate: 'Agustus 2026', description: '• Mengoperasikan peralatan dapur pada bagian pemanggangan (grill) dan penggorengan (fry) sesuai dengan SOP.\n• Menyiapkan pesanan dengan ritme cepat pada jam operasional yang padat.\n• Memastikan kebersihan alat kerja, area dapur, dan menjaga kualitas standar makanan.' },
+                { id: Date.now()-1, company: 'Megumi Bento & Ramen', position: 'Waiter', startDate: 'Juni 2025', endDate: 'November 2025', description: '• Memberikan pelayanan yang cepat dan ramah kepada pelanggan restoran.\n• Mencatat pesanan dengan akurat dan berkoordinasi langsung dengan tim dapur.\n• Menjaga kebersihan dan kerapian area makan pelanggan (dining area).' },
+                { id: Date.now()-2, company: 'KP2KP Rangkasbitung', position: 'Staff Administrasi Pelayanan (PKL)', startDate: '2024', endDate: '2024', description: '• Melaksanakan Praktik Kerja Lapangan (PKL).\n• Membantu proses administrasi pelayanan instansi.' }
             ],
             education: [
-                { id: Date.now(), institution: 'Universitas Sebelas Maret', degree: 'S1 Teknik Informatika', startDate: '2016', endDate: '2020', gpa: 'IPK 3.85', description: 'Aktif dalam organisasi kemahasiswaan dan asisten laboratorium.' },
-                { id: Date.now()-1, institution: 'SMK Negeri 2 Surakarta', degree: 'Teknik Komputer dan Jaringan', startDate: '2013', endDate: '2016', gpa: 'Nilai Rata-rata 88.5', description: '• Lulusan terbaik program keahlian TKJ.\n• Prakerin di PT Telkom Akses selama 3 bulan.' }
+                { id: Date.now(), institution: 'SMK Negeri 1 Rangkasbitung', degree: 'Teknik Jaringan Komputer & Telekomunikasi', startDate: '2022', endDate: '2025', gpa: '', description: '' }
             ],
             skills: [
-                { id: Date.now(), name: 'Troubleshooting Hardware', level: 90 }, { id: Date.now()-1, name: 'Cisco Networking', level: 85 }
+                { id: Date.now(), name: 'Administrasi Data & Komputer', level: 85 }, 
+                { id: Date.now()-1, name: 'Pelayanan Pelanggan / CS', level: 85 },
+                { id: Date.now()-2, name: 'Operasional F&B', level: 80 }
             ],
             softSkills: [
-                { id: Date.now(), name: 'Kerja Sama Tim (Teamwork)' }, 
-                { id: Date.now()-1, name: 'Disiplin & Manajemen Waktu' },
-                { id: Date.now()-2, name: 'Pemecahan Masalah (Troubleshooting)' },
-                { id: Date.now()-3, name: 'Pengoperasian Komputer (MS. Office)' },
-                { id: Date.now()-4, name: 'Pemahaman Dasar Jaringan' }
+                { id: Date.now(), name: 'Manajemen Waktu & Kedisiplinan' }, 
+                { id: Date.now()-1, name: 'Pemahaman SOP' },
+                { id: Date.now()-2, name: 'Kerja Sama Tim' },
+                { id: Date.now()-3, name: 'Tahan Bekerja di Bawah Tekanan' }
             ],
             languages: [
-                { id: Date.now(), name: 'Indonesia', level: 'Native' }, { id: Date.now()-1, name: 'Inggris', level: 'Intermediate' }
+                { id: Date.now(), name: 'Indonesia', level: 'Native' }, 
+                { id: Date.now()-1, name: 'Inggris', level: 'Beginner' }
             ],
-            certifications: [
-                { id: Date.now(), title: 'CompTIA Network+', issuer: 'CompTIA', year: '2022' }
-            ]
+            certifications: []
         };
-
-        let cvState = JSON.parse(localStorage.getItem('cvStateV4'));
-        if (!cvState) {
-            cvState = JSON.parse(JSON.stringify(emptyState));
-        } else if (!cvState.softSkills) {
-            cvState.softSkills = []; // Backward compatibility fix
-        }
-        
-        let debounceTimer;
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
