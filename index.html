@@ -442,7 +442,7 @@
                 email: 'danukpermadi2006@gmail.com', 
                 phone: '+6285129769015', 
                 location: 'Pemalang, Jawa Tengah', 
-                summary: 'Lulusan SMK Teknik Jaringan Komputer & Telekomunikasi yang adaptif, teliti, dan memiliki ketahanan fisik yang prima. Memiliki pengalaman kerja 1 tahun di industri F&B (area pelayanan dan dapur) yang melatih saya untuk bekerja cepat di bawah tekanan, menjaga kebersihan area kerja, dan mematuhi SOP secara ketat. Didukung dengan pengalaman administratif di instansi pemerintah, saya terbiasa mengelola data dengan akurat. Saat ini sangat antusias untuk memberikan kontribusi positif dan membangun karir jangka panjang di lingkungan kerja yang dinamis. Berdomisili di Jawa Tengah dan bersedia penuh untuk segera ditempatkan di Jakarta atau wilayah lainnya.',
+                summary: 'Lulusan SMK Teknik Jaringan Komputer & Telekomunikasi yang adaptif, teliti, dan memiliki ketahanan fisik yang prima. Memiliki pengalaman kerja 1 tahun di industri F&B (area pelayanan dan dapur) yang melatih saya untuk bekerja cepat di bawah tekanan, menjaga kebersihan area kerja, dan mematuhi SOP secara ketat. Didukung dengan pengalaman administratif di instansi pemerintah, saya terbiasa mengelola data dengan akurat. Saat ini sangat antusias untuk berkontribusi dan membangun karir jangka panjang di lingkungan kerja yang dinamis. Berdomisili di Jawa Tengah dan bersedia penuh untuk segera ditempatkan di Jakarta atau wilayah lainnya.',
                 photo: ''
             },
             experience: [
@@ -454,22 +454,29 @@
                 { id: Date.now(), institution: 'SMK Negeri 1 Rangkasbitung', degree: 'Teknik Jaringan Komputer & Telekomunikasi', startDate: '2022', endDate: '2025', gpa: '', description: '' }
             ],
             skills: [
-                { id: Date.now(), name: 'Administrasi Data & Komputer', level: 85 }, 
-                { id: Date.now()-1, name: 'Pelayanan Pelanggan / CS', level: 85 },
-                { id: Date.now()-2, name: 'Operasional F&B', level: 80 }
+                { id: Date.now(), name: 'Administrasi Data & Pengoperasian Komputer', level: 80 }, 
+                { id: Date.now()-1, name: 'Pelayanan Pelanggan / Customer Service', level: 85 },
+                { id: Date.now()-2, name: 'Operasional Dapur / F&B', level: 80 }
             ],
             softSkills: [
                 { id: Date.now(), name: 'Manajemen Waktu & Kedisiplinan' }, 
                 { id: Date.now()-1, name: 'Pemahaman SOP' },
-                { id: Date.now()-2, name: 'Kerja Sama Tim' },
-                { id: Date.now()-3, name: 'Tahan Bekerja di Bawah Tekanan' }
+                { id: Date.now()-2, name: 'Kerja Sama Tim' }
             ],
             languages: [
-                { id: Date.now(), name: 'Indonesia', level: 'Native' }, 
-                { id: Date.now()-1, name: 'Inggris', level: 'Beginner' }
+                { id: Date.now(), name: 'Indonesia', level: 'Native' }, { id: Date.now()-1, name: 'Inggris', level: 'Beginner' }
             ],
             certifications: []
         };
+
+        let cvState = JSON.parse(localStorage.getItem('cvStateV4'));
+        if (!cvState) {
+            cvState = JSON.parse(JSON.stringify(emptyState));
+        } else if (!cvState.softSkills) {
+            cvState.softSkills = []; // Backward compatibility fix
+        }
+        
+        let debounceTimer;
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
