@@ -438,30 +438,33 @@
             settings: { theme: 'light', color: '#10B981', font: 'jakarta', template: 'modern' },
             personal: { 
                 name: 'Danuk Permadi', 
-                title: 'Tenaga Operasional & Administrasi', 
+                title: 'Teknisi Jaringan | Lulusan SMK TKJ', 
                 email: 'danukpermadi2006@gmail.com', 
                 phone: '+6285129769015', 
-                location: 'Pemalang, Jawa Tengah', 
-                summary: 'Lulusan SMK Teknik Jaringan Komputer & Telekomunikasi yang adaptif, teliti, dan memiliki ketahanan fisik yang prima. Memiliki pengalaman kerja 1 tahun di industri F&B (area pelayanan dan dapur) yang melatih saya untuk bekerja cepat di bawah tekanan, menjaga kebersihan area kerja, dan mematuhi SOP secara ketat. Didukung dengan pengalaman administratif di instansi pemerintah, saya terbiasa mengelola data dengan akurat. Saat ini sangat antusias untuk berkontribusi dan membangun karir jangka panjang di lingkungan kerja yang dinamis. Berdomisili di Jawa Tengah dan bersedia penuh untuk segera ditempatkan di Jakarta atau wilayah lainnya.',
+                location: 'Rangkasbitung, Banten', 
+                summary: 'Lulusan SMK Negeri 1 Rangkasbitung jurusan Teknik Jaringan Komputer & Telekomunikasi (TKJ) yang berminat berkarier sebagai Teknisi Jaringan WiFi. Memahami dasar jaringan komputer, teliti, jujur, dan bertanggung jawab. Terbiasa bekerja dalam tim dan di bawah tekanan melalui 1 tahun pengalaman kerja di industri F&B, serta pernah mengikuti PKL di instansi pemerintah. Siap belajar dan berdomisili di Rangkasbitung.',
                 photo: ''
             },
             experience: [
                 { id: Date.now(), company: 'Boemi Sunda', position: 'Grill & Fry Crew', startDate: 'Maret 2026', endDate: 'Agustus 2026', description: '• Mengoperasikan peralatan dapur pada bagian pemanggangan (grill) dan penggorengan (fry) sesuai dengan SOP.\n• Menyiapkan pesanan dengan ritme cepat pada jam operasional yang padat.\n• Memastikan kebersihan alat kerja, area dapur, dan menjaga kualitas standar makanan.' },
                 { id: Date.now()-1, company: 'Megumi Bento & Ramen', position: 'Waiter', startDate: 'Juni 2025', endDate: 'November 2025', description: '• Memberikan pelayanan yang cepat dan ramah kepada pelanggan restoran.\n• Mencatat pesanan dengan akurat dan berkoordinasi langsung dengan tim dapur.\n• Menjaga kebersihan dan kerapian area makan pelanggan (dining area).' },
-                { id: Date.now()-2, company: 'KP2KP Rangkasbitung', position: 'Staff Administrasi Pelayanan (PKL)', startDate: '2024', endDate: '2024', description: '• Melaksanakan Praktik Kerja Lapangan (PKL).\n• Membantu proses administrasi pelayanan instansi.' }
+                { id: Date.now()-2, company: 'KP2KP Rangkasbitung', position: 'Praktik Kerja Lapangan (PKL)', startDate: '2024', endDate: '2024', description: '• Membantu proses administrasi pelayanan instansi.\n• Mengoperasikan komputer untuk pengelolaan data.' }
             ],
             education: [
-                { id: Date.now(), institution: 'SMK Negeri 1 Rangkasbitung', degree: 'Teknik Jaringan Komputer & Telekomunikasi', startDate: '2022', endDate: '2025', gpa: '', description: '' }
+                { id: Date.now(), institution: 'SMK Negeri 1 Rangkasbitung', degree: 'Teknik Jaringan Komputer & Telekomunikasi (TKJ)', startDate: '2022', endDate: '2025', gpa: '', description: '' }
             ],
             skills: [
-                { id: Date.now(), name: 'Administrasi Data & Pengoperasian Komputer', level: 80 }, 
-                { id: Date.now()-1, name: 'Pelayanan Pelanggan / Customer Service', level: 85 },
-                { id: Date.now()-2, name: 'Operasional Dapur / F&B', level: 80 }
+                { id: Date.now(), name: 'Dasar jaringan komputer (LAN, TCP/IP, IP address)', level: 70 },
+                { id: Date.now()-1, name: 'Instalasi dan crimping kabel UTP', level: 70 },
+                { id: Date.now()-2, name: 'Konfigurasi dasar router dan WiFi', level: 70 },
+                { id: Date.now()-3, name: 'Troubleshooting koneksi internet', level: 70 },
+                { id: Date.now()-4, name: 'Pengoperasian komputer', level: 75 }
             ],
             softSkills: [
-                { id: Date.now(), name: 'Manajemen Waktu & Kedisiplinan' }, 
-                { id: Date.now()-1, name: 'Pemahaman SOP' },
-                { id: Date.now()-2, name: 'Kerja Sama Tim' }
+                { id: Date.now(), name: 'Kerja sama tim' },
+                { id: Date.now()-1, name: 'Manajemen waktu dan kedisiplinan' },
+                { id: Date.now()-2, name: 'Pemahaman SOP' },
+                { id: Date.now()-3, name: 'Pelayanan pelanggan (customer service)' }
             ],
             languages: [
                 { id: Date.now(), name: 'Indonesia', level: 'Native' }, { id: Date.now()-1, name: 'Inggris', level: 'Beginner' }
@@ -471,7 +474,7 @@
 
         let cvState = JSON.parse(localStorage.getItem('cvStateV4'));
         if (!cvState) {
-            cvState = JSON.parse(JSON.stringify(emptyState));
+            cvState = JSON.parse(JSON.stringify(dummyData));
         } else if (!cvState.softSkills) {
             cvState.softSkills = []; // Backward compatibility fix
         }
